@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class ConnectionFactory {
 
-	 public static final String URL = "com.mysql.jdbc.Driver";
+	 public static final String URL = "com.mysql.jdbc.Driver/database_name";
 	 public static final String USER = "root";
 	 public static final String PASSWORD = "";
 	 public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
