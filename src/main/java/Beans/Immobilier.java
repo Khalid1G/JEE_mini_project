@@ -1,3 +1,4 @@
+package Beans;
 public class Immobiliers {
     private Long id;
     private String adresse;

@@ -1,3 +1,4 @@
+package Beans;
 public class Image {
 
     private Long id;

@@ -1,3 +1,4 @@
+package Beans;
 public class Commande {
 
     private Long id;
