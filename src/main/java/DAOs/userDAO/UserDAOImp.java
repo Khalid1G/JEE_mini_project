@@ -3,10 +3,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 import Beans.User;
-import Connexion.Connexion;
+import DataBase.ConnectionFactory;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -147,5 +146,11 @@ public class UserDAOImpl implements UserDAO {
         }
         return user;
     }
+
+	@Override
+	public void deleteUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

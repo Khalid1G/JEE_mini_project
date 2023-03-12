@@ -1,4 +1,7 @@
 package DAOs;
+
+import Beans.User;
+
 interface UserDAO{
     public User getUserById(long id);
     public void register(User user);

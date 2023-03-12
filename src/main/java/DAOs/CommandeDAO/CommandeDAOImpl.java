@@ -1,15 +1,18 @@
-import Beans.User;
-import Connexion.Connexion;
+package DAOs.CommandeDAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import Beans.Commande;
+import DataBase.ConnectionFactory;
 public class CommandeDaoImpl implements CommandeDao {
-private Connexion connection;
+private Connection conn;
     public CommandeDaoImpl() {
-        connection = ConnectionFactory.getInstance();
+    	conn = ConnectionFactory.getInstance();
     }
 
     @Override
@@ -19,7 +22,7 @@ private Connexion connection;
         ResultSet rs = null;
         List<Commande> commandes = new ArrayList<>();
         try {
-            conn = getConnection();
+
             String sql = "SELECT * FROM commandes";
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
@@ -40,7 +43,7 @@ private Connexion connection;
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnexion(conn);
         }
         return commandes;
     }
@@ -52,9 +55,8 @@ private Connexion connection;
         ResultSet rs = null;
         Commande commande = null;
         try {
-            conn = getConnection();
             String sql = "SELECT * FROM commandes WHERE id = ?";
-            stmt = connexion.prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setLong(1, id);
             rs = stmt.executeQuery();
             if (rs.next()) {
@@ -73,7 +75,7 @@ private Connexion connection;
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnexion(conn);
         }
         return commande;
     }
@@ -82,8 +84,7 @@ private Connexion connection;
     public void addCommande(Commande commande) {
 
         PreparedStatement stmt = null;
-        try {
-            conn = getConnection();
+        try { 
             String sql = "INSERT INTO commandes (client_id, immobilier_id, type_commande, date_debut, date_fin) VALUES (?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setLong(1, commande.getClientId());
@@ -95,7 +96,7 @@ private Connexion connection;
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnexion(conn);
         }
     }
     @Override
@@ -103,22 +104,21 @@ private Connexion connection;
 
         PreparedStatement stmt = null;
         try {
-            conn = getConnection();
             String sql = "DELETE FROM commandes WHERE id=?";
-            stmt = connexion.prepareStatement(sql);
+            stmt = conn.prepareStatement(sql);
             stmt.setLong(1, id);
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnexion(conn);
         }
     }
 
     @Override
     public void updateCommande(Commande commande) {
         try {
-
+            PreparedStatement stmt = null;
             String sql = "UPDATE commandes SET client_id=?, immobilier_id=?, type_commande=?, date_debut=?, date_fin=?, updated_at=? WHERE id=?";
             stmt = conn.prepareStatement(sql);
             stmt.setLong(1, commande.getClientId());
@@ -132,7 +132,7 @@ private Connexion connection;
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnexion(conn);
         }
     }
 

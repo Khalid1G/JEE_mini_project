@@ -64,4 +64,10 @@ public class Image {
     public void setDeletedAt(String deletedAt) {
         this.deletedAt = deletedAt;
     }
+
+	public Image() {
+		super();
+	}
+    
+    
 }

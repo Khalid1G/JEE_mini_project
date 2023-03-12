@@ -1,10 +1,12 @@
-package dao;
+package DAOs.ImmobiliersDAO;
+
 
 import java.util.List;
+
 import Beans.Immobiliers;
+import Beans.User;
 
 
-package DAOs.ImmobiliersDAO;
 public interface ImmobiliersDAO {
     public void addImmobilier(Immobiliers immobiliers, User user);
     public void updateImmobilier(Immobiliers immobiliers);
@@ -12,4 +14,5 @@ public interface ImmobiliersDAO {
     public Immobiliers getImmobilierById(Long id);
     public Immobiliers getImmobiliersByUser(Long proprietaireId);
     public List<Immobiliers> getAllImmobilirs();
+	List<Immobiliers> getImmobilierByUser(Long proprietaireId);
 }

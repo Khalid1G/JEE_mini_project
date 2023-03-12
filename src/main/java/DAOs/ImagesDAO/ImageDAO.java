@@ -1,6 +1,7 @@
-package DAOs;
+package DAOs.ImagesDAO;
 
 import java.util.List;
+
 import Beans.Image;
 
 public interface ImageDAO {

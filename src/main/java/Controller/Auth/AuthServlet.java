@@ -25,7 +25,7 @@ public class AuthServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             
-            if (login(email, password)) {
+            if (authenticate(email, password)) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("email", email);
                 response.sendRedirect(request.getContextPath() + "/home.jsp");

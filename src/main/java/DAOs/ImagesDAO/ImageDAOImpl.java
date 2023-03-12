@@ -1,4 +1,4 @@
-package DAOs;
+
 package DAOs.ImagesDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class ImageDAOImpl implements ImageDAO {
     private Connection connection;
 
     public ImageDAOImpl() {
-        connection = ConnectionFactory.getConnection();
+        connection = ConnectionFactory.getInstance();
     }
 
     @Override
