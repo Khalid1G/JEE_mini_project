@@ -5,6 +5,7 @@ public class Immobiliers {
     private String pay;
     private String ville;
     private String surface;
+    private int bathroomNumber;
     private int nbr_etage;
     private String type;
     private String description;
@@ -51,17 +52,20 @@ public class Immobiliers {
         return surface;
     }
 
+
+
     public void setSurface(String surface) {
         this.surface = surface;
     }
 
-    public Immobiliers(Long id, String adresse, String pay, String ville, String surface, int nbr_etage, String type, String description, Double prix, Boolean disponibilite, Long proprietaire_id, String created_at, String updated_at, String deleted_at) {
+    public Immobiliers(Long id, String adresse,int bathroomNumber, String pay, String ville, String surface, int nbr_etage, String type, String description, Double prix, Boolean disponibilite, Long proprietaire_id, String created_at, String updated_at, String deleted_at) {
         this.id = id;
         this.adresse = adresse;
         this.pay = pay;
         this.ville = ville;
         this.surface = surface;
         this.nbr_etage = nbr_etage;
+        this.bathroomNumber = bathroomNumber;
         this.type = type;
         this.description = description;
         this.prix = prix;
@@ -130,6 +134,14 @@ public class Immobiliers {
 
     public String getUpdated_at() {
         return updated_at;
+    }
+
+    public int getBathroomNumber() {
+        return bathroomNumber;
+    }
+
+    public void setBathroomNumber(int bathroomNumber) {
+        this.bathroomNumber = bathroomNumber;
     }
 
     public void setUpdated_at(String updated_at) {

@@ -22,12 +22,12 @@ public class AuthServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if ("login".equals(action)) {
-            String username = request.getParameter("email");
+            String email = request.getParameter("email");
             String password = request.getParameter("password");
             
-            if (authenticate(username, password)) {
+            if (login(email, password)) {
                 HttpSession session = request.getSession(true);
-                session.setAttribute("email", username);
+                session.setAttribute("email", email);
                 response.sendRedirect(request.getContextPath() + "/home.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/login.jsp?error=Invalid credentials");

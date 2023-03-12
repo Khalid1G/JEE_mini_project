@@ -30,8 +30,18 @@ public class ConnectionFactory {
 			}
 		return conn;
 	}
-	
-	 public static ResultSet read(String query) throws SQLException {
+	public static void closeConnexion(Connection conn) {
+		try {
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public static ResultSet read(String query) throws SQLException {
 	        Connection conn = null;
 	        Statement stmt = null;
 	        ResultSet rs = null;
