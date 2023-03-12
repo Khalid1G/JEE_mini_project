@@ -47,7 +47,7 @@ public class Commande {
         this.deletedAt = deletedAt;
     }
 
-    public Long getTypeCommande() {
+    public String getTypeCommande() {
         return typeCommande;
     }
 
