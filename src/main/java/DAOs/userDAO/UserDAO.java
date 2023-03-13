@@ -1,4 +1,4 @@
-package DAOs;
+package DAOs.userDAO;
 
 import Beans.User;
 
@@ -8,7 +8,7 @@ interface UserDAO{
     public User getUserByEmail(String email);
     public void login(User user);
     public void updateUser(User user);
-    public void deleteUser(User user);
+    public void deleteUser(Long user_id);
 
 
 }

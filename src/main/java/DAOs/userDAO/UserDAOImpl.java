@@ -68,12 +68,12 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            closeConnection(connection, stmt, rs);
+        	ConnectionFactory.closeConnexion(connection);
         }
     }
 
     @Override
-    public void deleteUser(long userId) {
+    public void deleteUser(Long userId) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM users WHERE id=?");
             preparedStatement.setLong(1, userId);
@@ -147,10 +147,5 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-	@Override
-	public void deleteUser(User user) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
